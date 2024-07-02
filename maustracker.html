@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeiger zeigt Richtung der Maus</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            position: relative;
+        }
+
+        #zeiger {
+            width: 0;
+            height: 0;
+            border: 25px solid transparent;
+            border-top: 0;
+            border-bottom: 50px solid red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: center;
+            transform: translate(-50%, -50%);
+        }
+        #zeigerkeule {
+            width: 25px;
+            height: 25px;
+            background-color: red;
+            position: absolute;
+            top:50px;
+            right: -12.5px;
+
+        }
+    </style>
+</head>
+<body>
+<div id="zeiger">
+    <div id="zeigerkeule"></div>
+</div>
+
+
+<script>
+    document.addEventListener('mousemove', function(event) {
+        var zeiger = document.getElementById('zeiger');
+        var x = event.clientX;
+        var y = event.clientY;
+        var zeigerX = window.innerWidth / 2;
+        var zeigerY = window.innerHeight / 2;
+
+        var deltaX = x - zeigerX;
+        var deltaY = y - zeigerY;
+
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+            if (deltaX > 0) {
+                zeiger.style.transform = 'translate(-50%, -50%) rotate(90deg)'; // rechts
+            } else {
+                zeiger.style.transform = 'translate(-50%, -50%) rotate(270deg)'; // links
+            }
+        } else {
+            if (deltaY > 0) {
+                zeiger.style.transform = 'translate(-50%, -50%) rotate(180deg)'; // unten
+            } else {
+                zeiger.style.transform = 'translate(-50%, -50%) rotate(0deg)'; // oben
+            }
+        }
+    });
+</script>
+</body>
+</html>

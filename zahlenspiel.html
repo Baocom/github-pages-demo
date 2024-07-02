@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zahlenspiel</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      margin: 0;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      width: 200px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    #hinweis {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+<input type="number" id="eingabe" placeholder="Gib eine Zahl ein">
+<button id="ueberpruefen">Überprüfen</button>
+<p id="hinweis"></p>
+
+<script>
+  var zufallszahl = Math.floor(Math.random() * 100) + 1;
+
+  document.getElementById('ueberpruefen').addEventListener('click', function() {
+    var eingabe = document.getElementById('eingabe').value;
+    var hinweis = document.getElementById('hinweis');
+    if (eingabe < zufallszahl) {
+      hinweis.textContent = 'Die Zahl ist zu niedrig.';
+    } else if (eingabe > zufallszahl) {
+      hinweis.textContent = 'Die Zahl ist zu hoch.';
+    } else {
+      hinweis.textContent = 'Herzlichen Glückwunsch! Du hast die Zahl erraten.';
+    }
+  });
+</script>
+
+</body>
+</html>

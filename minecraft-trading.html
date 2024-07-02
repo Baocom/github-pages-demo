@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Trading Spiel</title>
+    <link rel="stylesheet" href="minecraft-trading.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #87CEEB;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #emeralds {
+            font-size: 24px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .shop-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .shop-item img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        #inventory {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border: 2px solid #333;
+            width: 300px;
+            min-height: 100px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .inventory-item {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+<div id="emeralds"><img src="https://via.placeholder.com/50" alt="smaragd">x <span id="emerald-count">10</span></div>
+
+<div id="shop">
+    <div class="shop-item">
+        <img src="https://via.placeholder.com/50" alt="Diamant">
+        <button onclick="buyItem('Diamant', 5)">Diamant (5 Smaragde)</button>
+    </div>
+    <div class="shop-item">
+        <img src="https://via.placeholder.com/50" alt="Goldbarren">
+        <button onclick="buyItem('Goldbarren', 3)">Goldbarren (3 Smaragde)</button>
+    </div>
+    <div class="shop-item">
+        <img src="https://via.placeholder.com/50" alt="Eisenbarren">
+        <button onclick="buyItem('Eisenbarren', 1)">Eisenbarren (1 Smaragd)</button>
+    </div>
+</div>
+
+<div id="inventory">
+    <h3>Tasche:</h3>
+    <div id="inventory-items"></div>
+</div>
+
+<script>
+    var emeraldCount = 10;
+
+    function buyItem(itemName, itemCost) {
+        if (emeraldCount >= itemCost) {
+            emeraldCount -= itemCost;
+            document.getElementById('emerald-count').textContent = emeraldCount;
+
+            var inventory = document.getElementById('inventory-items');
+            var newItem = document.createElement('div');
+            newItem.className = 'inventory-item';
+            newItem.textContent = itemName;
+            inventory.appendChild(newItem);
+        } else {
+            alert('Nicht genug Smaragde!');
+        }
+    }
+</script>
+
+</body>
+</html>
