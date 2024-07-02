@@ -53,7 +53,7 @@
 <button id="naechstes">Nächstes Bild</button>
 
 <script>
-    document.getElementById('naechstes').addEventListener('click', function() {
+    document.getElementById('naechstes').addEventListener('click', function () {
         var bilder = document.querySelectorAll('#galerie img');
         var aktuellesBild = document.querySelector('#galerie img.active');
         var index = Array.prototype.indexOf.call(bilder, aktuellesBild);

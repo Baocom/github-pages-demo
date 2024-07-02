@@ -1,71 +1,71 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Glühbirne</title>
-  <style>
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background-color: #c6c6c6;
-      margin: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glühbirne</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #c6c6c6;
+            margin: 0;
+        }
 
-    .gluehbirne-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+        .gluehbirne-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    #gluehbirne {
-      width: 100px;
-      height: 100px;
-      background-color: #80808022;
-      border-radius: 50%;
-      border: 0.1px solid black;
-      transition: background-color 0.3s, box-shadow 0.3s;
-      position: relative;
-    }
+        #gluehbirne {
+            width: 100px;
+            height: 100px;
+            background-color: #80808022;
+            border-radius: 50%;
+            border: 0.1px solid black;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
 
-    #gluehbirne.angeschaltet {
-      background-color: yellow;
-      box-shadow: 0 0 30px 15px rgba(255, 255, 0, 0.6),
-      0 0 60px 30px rgba(255, 255, 0, 0.4),
-      0 0 90px 45px rgba(255, 255, 0, 0.2);
-    }
+        #gluehbirne.angeschaltet {
+            background-color: yellow;
+            box-shadow: 0 0 30px 15px rgba(255, 255, 0, 0.6),
+            0 0 60px 30px rgba(255, 255, 0, 0.4),
+            0 0 90px 45px rgba(255, 255, 0, 0.2);
+        }
 
-    .sockel {
-      width: 60px;
-      height: 30px;
-      background-color: #555;
-      border-radius: 0 0 10px 10px;
-      margin-top: -10px;
-      z-index: 2;
-    }
+        .sockel {
+            width: 60px;
+            height: 30px;
+            background-color: #555;
+            border-radius: 0 0 10px 10px;
+            margin-top: -10px;
+            z-index: 2;
+        }
 
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      margin-top: 20px;
-    }
-  </style>
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 <div class="gluehbirne-container">
-  <div id="gluehbirne"></div>
-  <div class="sockel"></div>
+    <div id="gluehbirne"></div>
+    <div class="sockel"></div>
 </div>
 <button id="schalter">Schalte Glühbirne</button>
 
 <script>
-  document.getElementById('schalter').addEventListener('click', function() {
-    var gluehbirne = document.getElementById('gluehbirne');
-    gluehbirne.classList.toggle('angeschaltet');
-  });
+    document.getElementById('schalter').addEventListener('click', function () {
+        var gluehbirne = document.getElementById('gluehbirne');
+        gluehbirne.classList.toggle('angeschaltet');
+    });
 </script>
 </body>
 </html>

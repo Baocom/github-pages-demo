@@ -27,12 +27,13 @@
             transform-origin: center;
             transform: translate(-50%, -50%);
         }
+
         #zeigerkeule {
             width: 25px;
             height: 25px;
             background-color: red;
             position: absolute;
-            top:50px;
+            top: 50px;
             right: -12.5px;
 
         }
@@ -45,7 +46,7 @@
 
 
 <script>
-    document.addEventListener('mousemove', function(event) {
+    document.addEventListener('mousemove', function (event) {
         var zeiger = document.getElementById('zeiger');
         var x = event.clientX;
         var y = event.clientY;
